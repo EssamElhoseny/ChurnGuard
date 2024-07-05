@@ -3,6 +3,7 @@
 ChurnGuard is a customer churn prediction tool built using a Random Forest Classifier model. The application is deployed using Streamlit to provide an interactive interface where users can input customer features and get predictions on whether the customer will churn or not.
 
 ## Table of Contents
+
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Installation](#installation)
@@ -52,7 +53,9 @@ requirements.txt: List of Python dependencies required for the project.
 Procfile: Configuration file for deploying the app on platforms like Heroku.
 
 ## Contributing
+
 Contributions are welcome! If you have any suggestions or improvements, feel free to fork the repository and create a pull request.
 
 ## License
-This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
+
+This project is licensed under the MIT License - see the LICENSE file for details.
