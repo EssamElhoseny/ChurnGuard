@@ -10,40 +10,39 @@ rfc_model = joblib.load('RFC-9910.joblib')
 # Load original features
 original_features = joblib.load('feature_names.joblib')
 
-# Title with custom CSS
-st.markdown("""
-    <style>
-    .title {
-        font-size: 3em;
-        font-weight: bold;
-        text-align: center;
-        color: #1C6AFF;
-        margin-bottom: 20px;
-    }
-    </style>
-    <div class="title">Customer Churn Prediction</div>
-    """, unsafe_allow_html=True)
+# Load custom CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("styles.css")
+
+# Title
+st.markdown('<div class="title">Customer Churn Prediction</div>', unsafe_allow_html=True)
 
 # Instructions
 st.markdown("""
-Welcome to the Customer Churn Prediction app!
+**Welcome to the Customer Churn Prediction app!**
 
-In this app, you can input various customer attributes to predict whether a customer is likely to churn or not. 
+In this app, you can input various customer attributes to predict whether a customer is likely to churn or not.
 
-**Instructions:**
-            
+<div class="instructions">
+### Instructions:
 - **Numerical Features:** For features like `MonthlyCharges` and `TotalCharges`, use the slider to set the value.
 - **Binary Features:** For binary features, select either 0 or 1:
   - **0:** Represents `No` or `False`.
   - **1:** Represents `Yes` or `True`.
+</div>
 
-After entering the details, click on the **Predict** button to see the prediction.
-
-**Prediction Interpretation:**
-            
+<div class="prediction-interpretation">
+### Prediction Interpretation:
 - **Churn = 1:** The customer is likely to churn.
 - **Churn = 0:** The customer is not likely to churn.
-""")
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
+
 
 # User Inputs
 def user_input_features():

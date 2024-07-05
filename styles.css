@@ -1,0 +1,23 @@
+.title {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.prediction-interpretation {
+    font-size: 1.1em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.separator {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
