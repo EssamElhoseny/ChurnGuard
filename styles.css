@@ -1,8 +1,8 @@
 .title {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bold;
     text-align: center;
-    color: #4CAF50;
+    color: #1C6AFF;
     margin-bottom: 20px;
 }
 
@@ -13,11 +13,21 @@
 
 .prediction-interpretation {
     font-size: 1.1em;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .separator {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #1C6AFF;
 }
