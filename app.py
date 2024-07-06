@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import warnings 
+import warnings
 warnings.filterwarnings("ignore")
 
 # Load model
@@ -33,35 +33,34 @@ In this app, you can input various customer attributes to predict whether a cust
             
 ### Instructions:
             
-- **Numerical Features:** For features like `MonthlyCharges` and `TotalCharges`, use the slider to set the value.
-- **Binary Features:** For binary features, select either 0 or 1:
-  - **0:** Represents `No` or `False`.
-  - **1:** Represents `Yes` or `True`.
+- **Numerical Features:** For features like `MonthlyCharges` and `TotalCharges`, enter the value manually in the text box.
+- **Binary Features:** For binary features, select either "Yes" or "No":
+  - **No:** Represents `0` or `False`.
+  - **Yes:** Represents `1` or `True`.
 </div>
 
 <div class="prediction-interpretation">
             
 ### Prediction Interpretation:
             
-- **Churn = 1:** The customer is likely to churn.
-- **Churn = 0:** The customer is not likely to churn.
+- **Churn = Yes:** The customer is likely to churn.
+- **Churn = No:** The customer is not likely to churn.
 </div>
             
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
 
-
 # User Inputs
 def user_input_features():
     inputs = {}
     for feature in original_features:
         if 'Charges' in feature:
-            inputs[feature] = st.slider(feature, min_value=0.0, max_value=10000.0, step=0.1)  # Customize the range as needed
+            inputs[feature] = st.text_input(feature)  # Use text input for numerical features
         elif 'tenure_group' in feature:
-            inputs[feature] = st.selectbox(feature, options=[0, 1])
+            inputs[feature] = st.selectbox(feature, options=["No", "Yes"], format_func=lambda x: 'Yes' if x == "Yes" else 'No')
         else:
-            inputs[feature] = st.selectbox(feature, options=[0, 1])
+            inputs[feature] = st.selectbox(feature, options=["No", "Yes"], format_func=lambda x: 'Yes' if x == "Yes" else 'No')
     features = pd.DataFrame(inputs, index=[0])
     return features
 
@@ -73,6 +72,8 @@ st.write(input_df)
 
 # Prediction
 if st.button('Predict'):
+    # Convert 'Yes'/'No' to 1/0
+    input_df = input_df.replace({'Yes': 1, 'No': 0})
     prediction = rfc_model.predict(input_df)
     # Display prediction
     st.subheader('Prediction')
