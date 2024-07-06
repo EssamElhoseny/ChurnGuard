@@ -35,6 +35,7 @@ In this app, you can input various customer attributes to predict whether a cust
             
 - **Numerical Features:** For features like `MonthlyCharges` and `TotalCharges`, enter the value manually in the text box.
 - **Binary Features:** For binary features, select either "Yes" or "No":
+  
   - **No:** Represents `0` or `False`.
   - **Yes:** Represents `1` or `True`.
 </div>
