@@ -42,7 +42,7 @@ Make sure you have Python installed. Then, install the required Python packages 
 
 ## Usage
 
-Once the application is running, open your web browser and go to http://localhost:8501. You will see the input fields for various customer features. Enter the values and click on the "Predict" button to see if the customer is likely to Streamlit.
+Once the application is running, open your web browser and go to http://localhost:8501. You will see the input fields for various customer features. Enter the values and click on the "Predict" button to see if the customer is likely to Churn.
 
 ## Project Structure
 
@@ -50,7 +50,7 @@ app.py: The main Streamlit application file.
 feature_names.joblib: Serialized file containing the names of the features used by the model.
 RFC_model.joblib: The pre-trained Random Forest Classifier model.
 requirements.txt: List of Python dependencies required for the project.
-Procfile: Configuration file for deploying the app on platforms like Heroku.
+Procfile: Configuration file for deploying the app on platforms like Streamlit.
 
 ## Contributing
 
