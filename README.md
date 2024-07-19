@@ -42,7 +42,7 @@ Make sure you have Python installed. Then, install the required Python packages 
 
 ## Usage
 
-Once the application is running, open your web browser and go to http://localhost:8501. You will see the input fields for various customer features. Enter the values and click on the "Predict" button to see if the customer is likely to churn.
+Once the application is running, open your web browser and go to http://localhost:8501. You will see the input fields for various customer features. Enter the values and click on the "Predict" button to see if the customer is likely to Streamlit.
 
 ## Project Structure
 
