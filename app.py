@@ -5,6 +5,9 @@ from PIL import Image
 import warnings
 warnings.filterwarnings("ignore")
 
+# Set page config (add this line)
+st.set_page_config(page_title="Customer Churn Prediction", page_icon="favicon.ico")
+
 # Load model
 rfc_model = joblib.load('RFC-9910.joblib')
 
