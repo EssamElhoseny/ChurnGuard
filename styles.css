@@ -2,6 +2,9 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #20232a;
     color: #61dafb;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .title {
@@ -24,15 +27,18 @@ body {
 }
 
 .separator {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    border-top: 2px solid #ddd;
+    margin: 30px 0; /* Combined margin-top and margin-bottom */
+    width: 100%; /* Ensure full width */
+    max-width: 700px; /* Match container width */
+    margin-left: auto;
+    margin-right: auto; /* Center the separator */
 }
 
 .container {
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #282c34;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -58,11 +64,6 @@ h1, h2, h3 {
     color: #ffffff;
 }
 
-.separator {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
 .additional-info {
     margin-top: 20px;
     background-color: #282c34;
@@ -71,7 +72,21 @@ h1, h2, h3 {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.separator {
-    border-top: 2px solid #ddd;
-    margin: 20px 0;
+/* Responsive design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+
+    .instructions, .prediction-interpretation {
+        font-size: 1.5em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .input-container, .prediction-container, .additional-info {
+        padding: 10px;
+    }
 }
