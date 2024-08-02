@@ -1,53 +1,71 @@
 body {
     font-family: 'Arial', sans-serif;
+    background-color: #20232a;
+    color: #61dafb;
 }
 
 .title {
-    font-size: 36px;
+    font-size: 2.5em;
     font-weight: bold;
-    color: #4CAF50;
     text-align: center;
+    color: #1C6AFF;
     margin-bottom: 20px;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .instructions {
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
-.banner {
-    width: 100%;
-    height: auto;
+.prediction-interpretation {
+    font-size: 2em;
+    margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.separator {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #282c34;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #1C6AFF;
 }
 
 .input-container {
-    background: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    color: #20232a;
 }
 
 .prediction-container {
-    background: #e0f7fa;
+    margin-top: 20px;
+    background-color: #282c34;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    color: #ffffff;
+}
+
+.separator {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .additional-info {
     margin-top: 20px;
-    background: #e8f5e9;
+    background-color: #282c34;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);

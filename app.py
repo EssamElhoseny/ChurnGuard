@@ -17,11 +17,40 @@ def local_css(file_name):
 local_css("styles.css")
 
 # Add custom images
-banner = Image.open("banner.png")
+banner = Image.open("Designer.png")
 st.image(banner, use_column_width=True)
 
 # Title
 st.markdown('<div class="title">Customer Churn Prediction</div>', unsafe_allow_html=True)
+
+# Instructions
+st.markdown("""
+**Welcome to the Customer Churn Prediction app!**
+
+In this app, you can input various customer attributes to predict whether a customer is likely to churn or not.
+
+<div class="instructions">
+            
+### Instructions:
+            
+- **Numerical Features:** For features like `MonthlyCharges` and `TotalCharges`, enter the value manually in the text box.
+- **Binary Features:** For binary features, select either "Yes" or "No":
+  
+  - **No:** Represents `0` or `False`.
+  - **Yes:** Represents `1` or `True`.
+</div>
+
+<div class="prediction-interpretation">
+            
+### Prediction Interpretation:
+            
+- **Churn = Yes:** The customer is likely to churn.
+- **Churn = No:** The customer is not likely to churn.
+</div>
+            
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
 
 # Sidebar for user inputs
 st.sidebar.markdown("### Input Customer Data")
@@ -55,6 +84,8 @@ if st.sidebar.button('Predict'):
     st.subheader('Prediction')
     st.write('Churn' if prediction[0] == 1 else 'No Churn')
     st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
 
 # Additional Information
 st.markdown("""
