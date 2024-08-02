@@ -1,33 +1,25 @@
 .title {
-    font-size: 2.5em;
+    font-size: 36px;
     font-weight: bold;
+    color: #4CAF50;
     text-align: center;
-    color: #1C6AFF;
     margin-bottom: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .instructions {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.prediction-interpretation {
-    font-size: 2em;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .separator {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    color: #1C6AFF;
+    border-top: 2px solid #ddd;
+    margin: 20px 0;
 }

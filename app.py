@@ -2,12 +2,11 @@ import streamlit as st
 import pandas as pd
 import joblib
 import warnings
+
 warnings.filterwarnings("ignore")
 
-# Load model
+# Load model and features
 rfc_model = joblib.load('RFC-9910.joblib')
-
-# Load original features
 original_features = joblib.load('feature_names.joblib')
 
 # Load custom CSS
