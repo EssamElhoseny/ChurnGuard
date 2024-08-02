@@ -1,12 +1,14 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import warnings
 from PIL import Image
+import warnings
 warnings.filterwarnings("ignore")
 
-# Load model and features
+# Load model
 rfc_model = joblib.load('RFC-9910.joblib')
+
+# Load original features
 original_features = joblib.load('feature_names.joblib')
 
 # Load custom CSS
@@ -22,6 +24,9 @@ st.image(banner, use_column_width=True)
 
 # Title
 st.markdown('<div class="title">Customer Churn Prediction</div>', unsafe_allow_html=True)
+
+# Container for content
+st.markdown('<div class="container">', unsafe_allow_html=True)
 
 # Instructions
 st.markdown("""
@@ -52,49 +57,32 @@ In this app, you can input various customer attributes to predict whether a cust
 
 st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
 
-# Sidebar for user inputs
-st.sidebar.markdown("### Input Customer Data")
-
+# User Inputs
 def user_input_features():
     inputs = {}
     for feature in original_features:
         if 'Charges' in feature:
-            inputs[feature] = st.sidebar.text_input(feature, "Enter value")
+            inputs[feature] = st.text_input(feature)  # Use text input for numerical features
         elif 'tenure_group' in feature:
-            inputs[feature] = st.sidebar.selectbox(feature, options=["No", "Yes"], index=0)
+            inputs[feature] = st.selectbox(feature, options=["No", "Yes"], format_func=lambda x: 'Yes' if x == "Yes" else 'No')
         else:
-            inputs[feature] = st.sidebar.selectbox(feature, options=["No", "Yes"], index=0)
+            inputs[feature] = st.selectbox(feature, options=["No", "Yes"], format_func=lambda x: 'Yes' if x == "Yes" else 'No')
     features = pd.DataFrame(inputs, index=[0])
     return features
 
 input_df = user_input_features()
 
-# Display user inputs in main section
-st.markdown('<div class="input-container">', unsafe_allow_html=True)
+# Display user inputs
 st.subheader('User Input Features')
 st.write(input_df)
-st.markdown('</div>', unsafe_allow_html=True)
 
 # Prediction
-if st.sidebar.button('Predict'):
+if st.button('Predict'):
+    # Convert 'Yes'/'No' to 1/0
     input_df = input_df.replace({'Yes': 1, 'No': 0})
     prediction = rfc_model.predict(input_df)
-    
-    st.markdown('<div class="prediction-container">', unsafe_allow_html=True)
-    st.subheader('Prediction')
-    st.write('Churn' if prediction[0] == 1 else 'No Churn')
-    st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
-
-# Additional Information
-st.markdown("""
-<div class="additional-info">
-    <h3>About the Model</h3>
-    <p>This application uses a Random Forest Classifier to predict customer churn based on various input features. 
-    Adjust the input values in the sidebar to see the prediction change.</p>
-</div>
-""", unsafe_allow_html=True)
+    # Display prediction
+    st.markdown('<div class="prediction-container"><h2>Prediction</h2><p>' + ('Churn' if prediction[0] == 1 else 'No Churn') + '</p></div>', unsafe_allow_html=True)
 
 # Close container
 st.markdown('</div>', unsafe_allow_html=True)
