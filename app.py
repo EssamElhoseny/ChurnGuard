@@ -6,7 +6,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Set page config (add this line)
-st.set_page_config(page_title="Customer Churn Prediction", page_icon="favicon.ico")
+st.set_page_config(page_title="Customer Churn Prediction", page_icon="icon2.ico")
 
 # Load model
 rfc_model = joblib.load('RFC-9910.joblib')
