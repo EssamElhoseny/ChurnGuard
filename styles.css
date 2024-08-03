@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #20232a;
-    color: #61dafb;
+    color: white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -72,22 +72,22 @@ h1, h2, h3 {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* New styles for input fields and select boxes */
+/* Style for text input fields */
 .stTextInput > div > div > input {
-    background-color: #282c34 !important;
-    color: #ffffff !important;
+    color: #61dafb !important;
+    background-color: transparent !important;
     border: 1px solid #232324 !important;
 }
 
 /* Style for select boxes */
 .stSelectbox > div > div > div {
     color: white !important;
-    border: 1px solid #1C6AFF !important;
+    border: 1px solid #212325 !important;
 }
 
 /* Style for the dropdown arrow */
 .stSelectbox > div > div > div > div {
-    color: #1C6AFF !important;
+    color: #61dafb !important;
 }
 
 /* Style for the options in the dropdown */
