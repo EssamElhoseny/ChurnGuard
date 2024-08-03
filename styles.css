@@ -73,18 +73,40 @@ h1, h2, h3 {
 }
 
 /* New styles for input fields and select boxes */
-.stTextInput > div > div > input,
-.stSelectbox > div > div > select {
+.stTextInput > div > div > input {
     background-color: #282c34 !important;
     color: #ffffff !important;
     border: 1px solid #232324 !important;
 }
 
-/* Style for input labels */
-.stTextInput > label, .stSelectbox > label {
+/* Style for select boxes */
+.stSelectbox > div > div > div {
+    color: white !important;
+    border: 1px solid #1C6AFF !important;
+}
+
+/* Style for the dropdown arrow */
+.stSelectbox > div > div > div > div {
     color: #1C6AFF !important;
 }
 
+/* Style for the options in the dropdown */
+.stSelectbox > div > div > div[aria-expanded="true"] > div:nth-child(2) {
+    background-color: #20232a !important;
+    border: 1px solid #1C6AFF !important;
+}
+
+/* Style for hover effect on options */
+.stSelectbox > div > div > div[aria-expanded="true"] > div:nth-child(2) > div:hover {
+    background-color: #1C6AFF !important;
+    color: white !important;
+}
+
+/* Style for selected option */
+.stSelectbox > div > div > div > div[aria-selected="true"] {
+    background-color: #1C6AFF !important;
+    color: white !important;
+}
 /* New style for input title */
 .input-title {
     color: #1C6AFF;
