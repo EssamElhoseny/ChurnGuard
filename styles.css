@@ -28,11 +28,11 @@ body {
 
 .separator {
     border-top: 2px solid #ddd;
-    margin: 30px 0; /* Combined margin-top and margin-bottom */
-    width: 100%; /* Ensure full width */
-    max-width: 700px; /* Match container width */
+    margin: 15px 0;
+    width: 100%;
+    max-width: 700px;
     margin-left: auto;
-    margin-right: auto; /* Center the separator */
+    margin-right: auto;
 }
 
 .container {
@@ -58,7 +58,7 @@ h1, h2, h3 {
 .prediction-container {
     margin-top: 20px;
     background-color: #282c34;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     color: #ffffff;
@@ -70,6 +70,27 @@ h1, h2, h3 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* New styles for input fields and select boxes */
+.stTextInput > div > div > input,
+.stSelectbox > div > div > select {
+    background-color: #282c34 !important;
+    color: #ffffff !important;
+    border: 1px solid #232324 !important;
+}
+
+/* Style for input labels */
+.stTextInput > label, .stSelectbox > label {
+    color: #1C6AFF !important;
+}
+
+/* New style for input title */
+.input-title {
+    color: #1C6AFF;
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Responsive design */

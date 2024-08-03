@@ -60,6 +60,9 @@ In this app, you can input various customer attributes to predict whether a cust
 
 st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
 
+# Add this line here, just before the user input section
+st.markdown('<h2 class="input-title">Customer Information</h2>', unsafe_allow_html=True)
+
 # User Inputs
 def user_input_features():
     inputs = {}
