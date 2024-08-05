@@ -3,26 +3,33 @@ import pandas as pd
 import joblib
 from PIL import Image
 import warnings
+import os
+
+
 warnings.filterwarnings("ignore")
 
-# Set page config (add this line)
-st.set_page_config(page_title="Customer Churn Prediction", page_icon="icon2.ico")
+# Define the path to the assets folder
+assets_path = os.path.join(os.path.dirname(__file__), 'assets')
+
+# Set page config
+icon_path = os.path.join(assets_path, 'images', 'icon2.ico')
+st.set_page_config(page_title="Customer Churn Prediction", page_icon=icon_path)
 
 # Load model
-rfc_model = joblib.load('RFC-9910.joblib')
+rfc_model = joblib.load(os.path.join(assets_path, 'models', 'RFC-9910.joblib'))
 
 # Load original features
-original_features = joblib.load('feature_names.joblib')
+original_features = joblib.load(os.path.join(assets_path, 'data', 'feature_names.joblib'))
 
 # Load custom CSS
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-local_css("styles.css")
+local_css(os.path.join(assets_path, 'styles', 'styles.css'))
 
 # Add custom images
-banner = Image.open("Designer.png")
+banner = Image.open(os.path.join(assets_path, 'images', 'customers.png'))
 st.image(banner, use_column_width=True)
 
 # Title
