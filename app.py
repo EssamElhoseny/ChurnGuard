@@ -16,10 +16,10 @@ icon_path = os.path.join(assets_path, 'images', 'icon2.ico')
 st.set_page_config(page_title="Customer Churn Prediction", page_icon=icon_path)
 
 # Load model
-rfc_model = joblib.load(os.path.join(assets_path, 'models', 'RFC-9910.joblib'))
+rfc_model = joblib.load(os.path.join(assets_path, 'models', 'rfc&gb-965.joblib'))
 
 # Load original features
-original_features = joblib.load(os.path.join(assets_path, 'data', 'feature_names.joblib'))
+original_features = joblib.load(os.path.join(assets_path, 'data', 'top_18_features.csv'))
 
 # Load custom CSS
 def local_css(file_name):
