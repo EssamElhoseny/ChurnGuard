@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 from PIL import Image
 import warnings
 import os
@@ -14,9 +14,9 @@ assets_path = os.path.join(os.path.dirname(__file__), 'assets')
 icon_path = os.path.join(assets_path, 'images', 'icon2.ico')
 st.set_page_config(page_title="Customer Churn Prediction", page_icon=icon_path)
 
-# Load model using pickle
-with open(os.path.join(assets_path, 'models', 'stacking_clf.pkl'), 'rb') as file:
-    stacking_clf = pickle.load(file)
+# Load model 
+stacking_clf = joblib.load(os.path.join(assets_path, 'models', 'rfc&gb-965.joblib'))
+
 
 # Load original features
 original_features = pd.read_csv(os.path.join(assets_path, 'data', 'top_18_features.csv'))
