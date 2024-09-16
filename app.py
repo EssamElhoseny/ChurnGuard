@@ -4,7 +4,7 @@ import joblib
 from PIL import Image
 import warnings
 import os
-
+import numpy as np
 
 warnings.filterwarnings("ignore")
 
@@ -16,10 +16,11 @@ icon_path = os.path.join(assets_path, 'images', 'icon2.ico')
 st.set_page_config(page_title="Customer Churn Prediction", page_icon=icon_path)
 
 # Load model
-rfc_model = joblib.load(os.path.join(assets_path, 'models', 'rfc&gb-965.joblib'))
+stacking_clf = joblib.load(os.path.join(assets_path, 'models', 'rfc&gb-965.joblib'))
 
 # Load original features
-original_features = joblib.load(os.path.join(assets_path, 'data', 'top_18_features.csv'))
+original_features = pd.read_csv(os.path.join(assets_path, 'data', 'top_18_features.csv'))
+original_features = original_features.columns.tolist()
 
 # Load custom CSS
 def local_css(file_name):
@@ -89,11 +90,18 @@ input_df = user_input_features()
 st.subheader('User Input Features')
 st.write(input_df)
 
+
 # Prediction
 if st.button('Predict'):
-    # Convert 'Yes'/'No' to 1/0
-    input_df = input_df.replace({'Yes': 1, 'No': 0})
-    prediction = rfc_model.predict(input_df)
+    # Use input_df directly without any conversion
+    input_array = np.array(input_df)
+    
+    # Reshape the array
+    input_reshaped = input_array.reshape(1, -1)
+    
+    # Make prediction
+    prediction = stacking_clf.predict(input_reshaped)
+    
     # Display prediction
     st.markdown('<div class="prediction-container"><h2>Prediction</h2><p>' + ('Churn' if prediction[0] == 1 else 'No Churn') + '</p></div>', unsafe_allow_html=True)
 
