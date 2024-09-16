@@ -4,6 +4,8 @@ import joblib
 from PIL import Image
 import warnings
 import os
+import sys
+
 
 warnings.filterwarnings("ignore")
 
@@ -15,8 +17,13 @@ icon_path = os.path.join(assets_path, 'images', 'icon2.ico')
 st.set_page_config(page_title="Customer Churn Prediction", page_icon=icon_path)
 
 # Load model 
-stacking_clf = joblib.load(os.path.join(assets_path, 'models', 'rfc&gb-965.joblib'))
-
+try:
+    stacking_clf = joblib.load(os.path.join(assets_path, 'models', 'rfc&gb-965.joblib'))
+except Exception as e:
+    st.error(f"Error loading model: {str(e)}")
+    st.error(f"Python version: {sys.version}")
+    st.error(f"Joblib version: {joblib.__version__}")
+    raise
 
 # Load original features
 original_features = pd.read_csv(os.path.join(assets_path, 'data', 'top_18_features.csv'))
