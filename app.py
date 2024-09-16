@@ -75,34 +75,41 @@ st.markdown('<h2 class="input-title">Customer Information</h2>', unsafe_allow_ht
 def user_input_features():
     inputs = {}
     for feature in original_features:
-        if 'Charges' in feature:
-            inputs[feature] = st.text_input(feature)  # Use text input for numerical features
-        elif 'tenure_group' in feature:
-            inputs[feature] = st.selectbox(feature, options=["No", "Yes"], format_func=lambda x: 'Yes' if x == "Yes" else 'No')
-        else:
-            inputs[feature] = st.selectbox(feature, options=["No", "Yes"], format_func=lambda x: 'Yes' if x == "Yes" else 'No')
+        if 'Charges' in feature:  # Numeric input for charges
+            inputs[feature] = st.text_input(feature)  # Keep as a text input for numeric values like MonthlyCharges
+        elif 'tenure_group' in feature:  # Binary input for tenure group (Yes/No)
+            inputs[feature] = st.selectbox(feature, options=["No", "Yes"])
+        else:  # Binary input for other features (Yes/No)
+            inputs[feature] = st.selectbox(feature, options=["No", "Yes"])
+    
+    # Convert 'Yes'/'No' inputs to 1/0 internally for prediction
+    for key in inputs:
+        if inputs[key] == 'Yes':
+            inputs[key] = 1
+        elif inputs[key] == 'No':
+            inputs[key] = 0
+    
     features = pd.DataFrame(inputs, index=[0])
     return features
 
 input_df = user_input_features()
 
-# Display user inputs
+# Display user inputs for transparency
 st.subheader('User Input Features')
-st.write(input_df)
-
+st.write(input_df.replace({1: 'Yes', 0: 'No'}))  # Display 'Yes'/'No' to the user
 
 # Prediction
 if st.button('Predict'):
-    # Use input_df directly without any conversion
-    input_array = np.array(input_df)
+    # Convert DataFrame to numpy array for model input
+    input_array = input_df.values
     
-    # Reshape the array
+    # Reshape if necessary (but this step might not be needed depending on the model)
     input_reshaped = input_array.reshape(1, -1)
     
     # Make prediction
     prediction = stacking_clf.predict(input_reshaped)
     
-    # Display prediction
+    # Display prediction result
     st.markdown('<div class="prediction-container"><h2>Prediction</h2><p>' + ('Churn' if prediction[0] == 1 else 'No Churn') + '</p></div>', unsafe_allow_html=True)
 
 # Close container
