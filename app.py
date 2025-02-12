@@ -38,7 +38,7 @@ local_css(os.path.join(assets_path, 'styles', 'styles.css'))
 
 # Add custom images
 banner = Image.open(os.path.join(assets_path, 'images', 'customers.png'))
-st.image(banner, use_column_width=True)
+st.image(banner, use_container_width=True)
 
 # Title
 st.markdown('<div class="title">Customer Churn Prediction</div>', unsafe_allow_html=True)
