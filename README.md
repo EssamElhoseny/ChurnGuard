@@ -14,7 +14,7 @@ ChurnGuard is a customer churn prediction tool (https://churnguard-scifox.stream
 
 ## Project Overview
 
-Customer churn prediction is a critical task for businesses aiming to retain their customers. ChurnGuard uses a machine learning model to predict the likelihood of customer churn based on input features. The model is deployed using Streamlit to create an easy-to-use web application.
+Customer churn prediction is a critical task for businesses aiming to retain their customers. ChurnGuard uses a machine learning model to predict the likelihood of customer churn based on input features. The model is deployed using Streamlit to create an easy-to-use web application (https://churnguard-scifox.streamlit.app/).
 
 ## Features
 
