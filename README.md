@@ -1,6 +1,6 @@
 # ChurnGuard
 
-ChurnGuard is a customer churn prediction tool built using a Random Forest Classifier model. The application is deployed using Streamlit to provide an interactive interface where users can input customer features and get predictions on whether the customer will churn or not.
+ChurnGuard is a customer churn prediction tool (https://churnguard-scifox.streamlit.app/) built using a Random Forest Classifier model. The application is deployed using Streamlit to provide an interactive interface where users can input customer features and get predictions on whether the customer will churn or not.
 
 ## Table of Contents
 
